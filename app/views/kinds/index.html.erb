@@ -1,0 +1,6 @@
+<h1>Kinds of Snippets</h1>
+<div>
+  <% @kinds.each do |kind| %>
+    <li><%= (kind.snippets.count) > 0 ? (link_to kind.name, kind_path(kind)) : (kind.name) %> (<%= kind.snippets.count %> Snippets)</li>
+  <% end %>
+</div>

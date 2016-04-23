@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   #Add full crud for snippets as we will use all the actions
+  resources :kinds, only: [:index, :show]
   resources :snippets
 
   # The priority is based upon order of creation: first created -> highest priority.
