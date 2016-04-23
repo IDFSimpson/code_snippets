@@ -1,11 +1,11 @@
 class SnippetsController < ApplicationController
+  before_action :find_snippet, only: [:show,:edit,:update,:destroy]
 
   def index
     @snippets = Snippet.all
   end
 
   def show
-    @snippet = Snippet.find params[:id]
   end
 
   def new
@@ -13,7 +13,6 @@ class SnippetsController < ApplicationController
   end
 
   def create
-    snippet_params = params.require(:snippet).permit(:title, :work)
     @snippet = Snippet.new snippet_params
     if @snippet.save
       redirect_to @snippet, notice: "Snippet Added"
@@ -25,12 +24,9 @@ class SnippetsController < ApplicationController
   end
 
   def edit
-    @snippet = Snippet.find params[:id]
   end
 
   def update
-    @snippet = Snippet.find params[:id]
-    snippet_params = params.require(:snippet).permit(:title, :work)
     if @snippet.update snippet_params
       redirect_to @snippet, notice: "Snippet Updated"
     else
@@ -40,9 +36,18 @@ class SnippetsController < ApplicationController
   end
 
   def destroy
-    @snippet = Snippet.find params[:id]
     @snippet.destroy
-    redirect_to snippets_path, notice: "Snippet Deleted Successfully"    
+    redirect_to snippets_path, notice: "Snippet Deleted Successfully"
+  end
+
+  private
+
+  def snippet_params
+    params.require(:snippet).permit(:title, :work, :kind_id)
+  end
+
+  def find_snippet
+    @snippet = Snippet.find params[:id]
   end
 
 end
