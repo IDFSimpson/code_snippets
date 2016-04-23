@@ -1,5 +1,25 @@
 require 'rails_helper'
 
 RSpec.describe Kind, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "validations" do
+
+    def valid_attributes
+      {name: "Visual Basic"}
+    end
+
+    it "has a name" do
+      k = Kind.new(valid_attributes.merge(name: nil))
+      k.valid?
+      expect(k.errors).to have_key(:name)
+    end
+
+    it "has a unique name" do
+      Kind.create(valid_attributes)
+      k = Kind.new(valid_attributes)
+      expect(k).to be_invalid
+    end
+
+    it "has a titleized name"
+
+  end
 end
