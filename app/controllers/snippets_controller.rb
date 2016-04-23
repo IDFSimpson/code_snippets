@@ -25,12 +25,24 @@ class SnippetsController < ApplicationController
   end
 
   def edit
+    @snippet = Snippet.find params[:id]
   end
 
   def update
+    @snippet = Snippet.find params[:id]
+    snippet_params = params.require(:snippet).permit(:title, :work)
+    if @snippet.update snippet_params
+      redirect_to @snippet, notice: "Snippet Updated"
+    else
+      flash[:alert] = "Snippet was not updated..."
+      render :edit
+    end
   end
 
   def destroy
+    @snippet = Snippet.find params[:id]
+    @snippet.destroy
+    redirect_to snippets_path, notice: "Snippet Deleted Successfully"    
   end
 
 end

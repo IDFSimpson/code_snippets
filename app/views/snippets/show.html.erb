@@ -1,1 +1,7 @@
 <h1><%= @snippet.title %></h1>
+<p><%= @snippet.work %></p>
+
+<%= link_to "Edit", edit_snippet_path(@snippet) %>
+<%= link_to "Delete", snippet_path(@snippet),
+                      method: :delete,
+                      data: {confirm: "Are you sure you want to delete #{@snippet.title}?"} %>
