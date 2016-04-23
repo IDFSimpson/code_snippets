@@ -19,6 +19,8 @@ RSpec.describe Kind, type: :model do
       expect(k).to be_invalid
     end
 
+    it "has a unique name regardless of case"
+
     it "has a titleized name"
 
   end

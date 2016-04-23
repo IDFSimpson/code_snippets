@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Kind.create(name: "Ruby")
+Kind.create(name: "HTML")
+Kind.create(name: "CSS")
+Kind.create(name: "JavaScript")
+Kind.create(name: "Other")

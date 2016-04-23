@@ -1,6 +1,6 @@
-<h1><%= @snippet.title %></h1>
-<p><%= @snippet.work %></p>
-
+<p>Kind: <%= @snippet.kind.name %></p>
+<p>Title: <%= @snippet.title %></p>
+<p>Work: <%= @snippet.work %></p>
 <%= link_to "Edit", edit_snippet_path(@snippet) %>
 <%= link_to "Delete", snippet_path(@snippet),
                       method: :delete,

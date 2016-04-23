@@ -1,5 +1,9 @@
 <%= form_for @snippet do |f| %>
   <div>
+    <%= f.label :kind %>
+    <%= f.collection_select :kind_id, Kind.order(:name), :id, :name %>
+  </div>
+  <div>
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
