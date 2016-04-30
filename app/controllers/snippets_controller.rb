@@ -1,4 +1,5 @@
 class SnippetsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :find_snippet, only: [:show,:edit,:update,:destroy]
 
   def index
@@ -14,6 +15,8 @@ class SnippetsController < ApplicationController
 
   def create
     @snippet = Snippet.new snippet_params
+    @user = current_user
+    @snippet.user = @user
     if @snippet.save
       redirect_to @snippet, notice: "Snippet Added"
     else

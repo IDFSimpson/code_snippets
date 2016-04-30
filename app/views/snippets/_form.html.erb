@@ -24,6 +24,10 @@
     <%= f.text_area :work, rows: 20 %>
   </div>
   <div>
+    <%= f.label :private %>
+    <%= f.check_box :private %>
+  </div>
+  <div>
     <%= f.submit "Save" %>
   </div>
 <% end %>
