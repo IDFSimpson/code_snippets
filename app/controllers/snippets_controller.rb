@@ -17,7 +17,7 @@ class SnippetsController < ApplicationController
     if @snippet.save
       redirect_to @snippet, notice: "Snippet Added"
     else
-      flash[:alert] = "Snippet was not saved..."
+      flash.now[:alert] = "Snippet was not saved..."
       render :new
     end
 
@@ -30,7 +30,7 @@ class SnippetsController < ApplicationController
     if @snippet.update snippet_params
       redirect_to @snippet, notice: "Snippet Updated"
     else
-      flash[:alert] = "Snippet was not updated..."
+      flash.now[:alert] = "Snippet was not updated..."
       render :edit
     end
   end

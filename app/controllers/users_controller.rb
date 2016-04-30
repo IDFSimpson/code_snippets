@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path, notice: "Account created"
     else
-      flash[:alert] = "Account creation failed"
+      flash.now[:alert] = "Account creation failed"
       render :new
     end
 
