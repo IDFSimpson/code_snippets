@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :kind do
-    sequence(:name) {|n| Faker::Internet.email.gsub("@", "-#{n}@") }
+    sequence(:name) {|n| "#{n}-Faker::Name.first_name") }
   end
 end
