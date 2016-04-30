@@ -1,5 +1,6 @@
 <p>Kind: <%= @snippet.kind.name %></p>
 <p>Author: <%= @snippet.user.email %></p>
+<p>Private: <%= @snippet.private %></p>
 <p>Title: <%= @snippet.title %></p>
 <p>Work: <%= markdown(@snippet.work)%></p>
 <%= link_to "Edit", edit_snippet_path(@snippet) %>
