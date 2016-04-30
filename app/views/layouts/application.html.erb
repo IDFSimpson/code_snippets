@@ -7,8 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<%= link_to "Snippets", snippets_path  %>
+|
+<%= link_to "Snippets by kind", kinds_path  %>
+|
+<%= link_to "Add a snippet", new_snippet_path  %>
+<hr>
   <%= notice || alert %>
-
+  
 <%= yield %>
 
 </body>
